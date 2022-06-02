@@ -34,5 +34,25 @@ li a {
 }
 
 li a:hover {
-    color: #d5ac5b;
+    color: #886314;
 }
+
+.container-cart {
+    border: 1px solid #ebbc55;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    margin: 80px;
+    border-radius: 2px;
+}
+
+.container-cart:hover {
+    background-color: #886314;
+}
+
+.cart {
+    color: #ebbc55;
+    display: flex;
+    margin: auto;
+}
+
