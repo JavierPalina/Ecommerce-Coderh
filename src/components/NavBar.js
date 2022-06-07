@@ -6,13 +6,13 @@ const NavBar = () => {
             <h1 className="brand">ViperG</h1>
             <ul>
                 <li>
-                    <a href="#">Link 1</a>
+                    <a href="#">Inicio</a>
                 </li>
                 <li>
-                    <a href="#">Link 2</a>
+                    <a href="#">Productos</a>
                 </li>
                 <li>
-                    <a href="#">Link 3</a>
+                    <a href="#">Ayuda</a>
                 </li>
             </ul>
             <CartWidget />

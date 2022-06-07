@@ -1,20 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+:root {
+    --main-bg: #ffffff;
+    --second-bg: #fafafb;
+    --txt-color: #455560;
+    --txt-white: #fff;
+    --main-color: #349eff;
+    --second-color: #D6EBFF;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Piazzolla', serif;
+    font-family: 'DM Sans', sans-serif;
 }
 
 header {
-    background-color: #000;
+    background-color: var(--main-bg);
     height: 70px;
     display: flex;
     align-items: center;
 }
 
 .brand {
-    color:#ebbc55;
+    color: var(--txt-color);
     letter-spacing: 4px;
     margin-left: 40px;
     position: absolute;
@@ -30,15 +40,16 @@ header ul {
 
 li a {
     text-decoration: none;
-    color:#ebbc55;
+    color:var(--txt-color);
+    user-select: none;
 }
 
 li a:hover {
-    color: #886314;
+    color: var(--main-color);
 }
 
 .container-cart {
-    border: 1px solid #ebbc55;
+    border: 1px solid var(--main-color);
     width: 40px;
     height: 40px;
     display: flex;
@@ -47,12 +58,87 @@ li a:hover {
 }
 
 .container-cart:hover {
-    background-color: #886314;
+    background-color: var(--second-color);
+    cursor: pointer;
 }
 
 .cart {
-    color: #ebbc55;
+    color: var(--main-color);
     display: flex;
     margin: auto;
+    user-select: none;
 }
 
+.ListContainer {
+    background-color: var(--main-bg);
+    height: 100vh;
+}
+
+.ListContainer h1 {
+    color: var(--main-color);
+    text-align: center;
+    padding-top: 20px;
+}
+
+.container-itemCount {
+    width: 180px;
+    height: 180px;
+    background: var(--main-bg);
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 2px;
+    background-color: var(--main-bg);
+    box-shadow: var(--box-shadow);
+}
+
+.container-button {
+    width: 150px;
+    height: 30px;
+    background-color: var(--second-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 2px;
+    margin: auto;
+    position: relative;
+    top: 60px;
+}
+
+.container-button button {
+    border: none;
+    background-color: var(--second-color);
+    font-size: 25px;
+    font-family: serif;
+    color: var(--main-color);
+    height: 0;
+}
+
+.container-button button:hover {
+    cursor: pointer;
+}
+
+.addShop {
+    margin: auto;
+    display: flex;
+    margin-top: 80px;
+    background: var(--main-bg);
+    border-radius: 2px;
+    border: 1px solid var(--main-color);
+    height: 30px;
+    width: 150px;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--main-color);
+    background-color: var(--main-bg);
+    padding-top: 4px;
+}
+
+.addShop:hover {
+    cursor: pointer;
+    background-color: var(--second-color);
+}
+
+.contador {
+    color: var(--main-color);
+    padding-top: 4px;
+}
