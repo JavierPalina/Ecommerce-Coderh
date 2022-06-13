@@ -11,8 +11,9 @@ const ItemCount = (props) => {
     }
 
     const bajarContador = () => {
-        if(contador > 0){
-            setContador(contador - 1)
+        setContador (contador - props.initial)
+        if(contador <= 0) {
+            setContador(0)
         }
     }
 
