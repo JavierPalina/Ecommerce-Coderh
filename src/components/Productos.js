@@ -1,4 +1,4 @@
-export const productos = [
+export const Productos = [
     { 
         id: 1, 
         title: 'Remera Tommy Hilfiger',
@@ -32,3 +32,12 @@ export const productos = [
         description: 'Camisa a cuadros confeccionada en cómodo algodón y lino. Suave y ligero, luce un elegante corte entallado y botones de nácar real.'
     },
 ]
+
+export const Producto = { 
+    id: 4, 
+    title: 'Camisa Slim Fit', 
+    price: "$20.000,00", 
+    stock: 3, 
+    pictureUrl: 'https://imagesa1.lacoste.com/dw/image/v2/BCWL_PRD/on/demandware.static/-/Sites-master/default/dwe64611a8/CH7643_FV2_24.jpg?imwidth=915&impolicy=product',
+    description: 'Camisa a cuadros confeccionada en cómodo algodón y lino. Suave y ligero, luce un elegante corte entallado y botones de nácar real.'
+}

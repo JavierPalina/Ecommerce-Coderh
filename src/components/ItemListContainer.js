@@ -1,13 +1,13 @@
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
-import { productos } from './Productos';
+import { Productos } from './Productos';
 
 const ItemListContainer = (props) => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const MocAsync = new Promise((res) => {
             setTimeout(() => {
-                const productosDeDB = productos
+                const productosDeDB = Productos
                 res(productosDeDB)
             }, 2000)
     })
@@ -19,16 +19,14 @@ const ItemListContainer = (props) => {
 
     if(items.length > 0) {
         return (
-            <>
-            <div className="container">
+            
                 <div className="ListContainer">
                     <h1>{props.greeting}</h1>
                     <div className="Products">
                         <ItemList items={items}/>
                     </div>
                 </div>
-            </div>
-            </>
+
     )
 
     } else {

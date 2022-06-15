@@ -1,19 +1,19 @@
 import ItemCount from './ItemCount';
 
-const item = ({title, price, stock, pictureUrl, description}) => {
+const Item = ({title, price, stock, pictureUrl, description}) => {
   return (
         <div className="cardContainer">
             <div className="containerImage">
-                <img src={pictureUrl} className="image" alt="" />
+                <img src={pictureUrl} className="image"/>
             </div>
-            <div className="producto">
-                <h3 className="nombre">{title} <small>({stock})</small></h3>
-                <p className="precio">{price}</p>
-                <p className="descripcion">{description}</p>
+            <div className="product">
+                <h3 className="name">{title} <small>({stock})</small></h3>
+                <p className="price">{price}</p>
+                <p className="description">{description}</p>
                 <ItemCount stock={stock} initial={1} onAdd={()=>{}} />
             </div>
         </div>
   )
 }
 
-export default item
+export default Item
