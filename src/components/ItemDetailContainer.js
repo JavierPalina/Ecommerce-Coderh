@@ -1,29 +1,44 @@
 import { useState, useEffect} from "react";
-import { Producto } from "./Productos";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { Productos } from "./Productos";
 
-const ItemDetailContainer = ({}) => {
-    const [item, getItem] = useState(null);
-    useEffect(() => {
-        const MocAsync = new Promise((res) => {
+function ItemDetailContainer({}) {
+    const getProductsById = (id) => {
+            return new Promise (resolve => {
             setTimeout(() => {
-                const productoDeDB = Producto
-                res(productoDeDB)
+                resolve(Productos.find(prod => prod.id === id))
             }, 2000)
-    })
-
-    MocAsync.then(item => {
-            getItem(item)
         })
-    },[])
-    if(item) {
-        return (
-            <div>
-               <ItemDetail item={item} />
-            </div>
-          )
     }
- }
 
+    const [Product, setProduct] = useState();	
+    const { id } = useParams()
+
+    useEffect(() => {
+        getProductsById(parseInt(id))
+        .then(response => {
+            setProduct(response)
+        })
+    }, [])
+    
+    if(Product) {  
+        return (
+            <ItemDetail {...Product} />
+        )
+   }else {
+        return (
+            <div className="container">
+                <div className="containerLoad">
+                    <div className="loader">
+                        <div className="inner one"></div>
+                        <div className="inner two"></div>
+                        <div className="inner three"></div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
 
 export default ItemDetailContainer

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ItemCount = (props) => {
     const [contador, setContador] = useState(props.initial);
-
+    
     const aumentarContador = () => {
         setContador(contador + 1)
         if(contador >= props.stock) {
