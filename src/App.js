@@ -12,6 +12,7 @@ const App = () => {
             práctica para CoderHouse"/>} />
             <Route path='/item/:id' element={<ItemDetailContainer/>} />
             <Route path='/category/:category' element={<ItemListContainer/>}/>
+            <Route path="/cart" element={<></>} />
       </Routes>
     </BrowserRouter>
   )

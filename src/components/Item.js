@@ -4,7 +4,7 @@ const Item = ({id, title, price, stock, pictureUrl}) => {
   return (
         <div className="cardContainer2">
             <div className="containerImage">
-                <img src={pictureUrl} className="image"/>
+                <img src={pictureUrl} alt={title} className="image"/>
             </div>
             <div className="product">
                 <h3 className="Item-name">{title} <small>({stock})</small></h3>

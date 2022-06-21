@@ -11,6 +11,12 @@
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
    /* loader */
    .loader {
     position: absolute;
@@ -78,12 +84,6 @@
   }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'DM Sans', sans-serif;
-}
-
 header {
     background-color: var(--main-bg);
     height: 70px;
@@ -114,6 +114,10 @@ li a {
 }
 
 li a:hover {
+    color: var(--main-color);
+}
+
+a.active {
     color: var(--main-color);
 }
 
@@ -319,12 +323,13 @@ h2 {
 }
 
 .detail {
-  width: 798px;
+  width: 761px;
+  height: 481px;
   margin: 20px auto;
 }
 
 .detail-image {
-    width: 448px;
+    width: 410px;
     height: 481px;
 }
 
@@ -334,4 +339,8 @@ h2 {
 
 h3 small {
   color: var(--txt-grey);
+}
+
+.underl {
+  text-decoration: auto;
 }

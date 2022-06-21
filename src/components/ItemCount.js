@@ -17,6 +17,10 @@ const ItemCount = (props) => {
         }
     }
 
+    const confirmarContador = () => {
+        props.onAdd(contador)
+    }
+
 return (
     <>
         <div className="container-itemCount">
@@ -25,7 +29,7 @@ return (
                 <p className="contador">{contador}</p>
                 <button onClick={aumentarContador}>+</button>
             </div>
-            <button className="addShop">Agregar al carrito</button>
+            <button className="addShop" onClick={confirmarContador}>Agregar al carrito</button>
         </div>
     </>
 )
