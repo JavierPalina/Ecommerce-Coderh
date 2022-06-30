@@ -1,33 +1,39 @@
 import React, { createContext, useState } from 'react'
 
 export const cartContext = createContext()
+
 const Provider = cartContext.Provider
 const CartProvider = (props) => {
   const [cart, setCart] = useState([])
-  const [totalQuantity, setTotalQuantity] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const addItem = (item, quantity) => {
-    const itemAgregado = {
+    const itemAdded = {
       ...item,
       quantity: quantity,
     }
+
     const copyCart = [...cart]
 
     if (isInCart(item.id)) {
-      copyCart.forEach((element) => {
-        if (element.id === item.id) element.quantity += quantity
+      copyCart.forEach((product) => {
+        if (product.id === item.id) product.quantity += quantity
       })
-      setCart(copyCart);
+      setCart(copyCart)
       setTotalQuantity(totalQuantity + quantity)
+      setTotalPrice(
+        (totalPrice + itemAdded.price * quantity))
     } else {
-      copyCart.push({ ...itemAgregado });
-      setCart(copyCart);
+      copyCart.push({ ...itemAdded });
+      setCart(copyCart)
       setTotalQuantity(totalQuantity + quantity)
+      setTotalPrice(
+        (totalPrice + itemAdded.price * quantity))
     }
   }
 
-  const removeItem = (itemId) => {}
+  const removeItem = (id) => setCart(cart.filter(item => item.id !== id))
   
   const isInCart = (idSearch) => {
     return cart.find(({ id }) => id === idSearch) ? true : false;
@@ -35,19 +41,20 @@ const CartProvider = (props) => {
 
   const clear = () => {
     setCart([]);
-    setTotalQuantity(0);
+    setTotalQuantity(0)
+    setTotalPrice(0)
   }
 
   const allContext = {
-    cart: cart,
-    totalQuantity: totalQuantity,
-    totalPrice: totalPrice,
-    addItem: addItem,
-    removeItem: removeItem,
-    clear: clear,
+    cart,
+    totalQuantity,
+    totalPrice,
+    addItem,
+    removeItem,
+    clear,
   }
 
-  return <Provider value={allContext}>{props.children}</Provider>;
+  return <Provider value={allContext}>{props.children}</Provider>
 }
 
 export default CartProvider
