@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const ItemCount = (props) => {
-    const [contador, setContador] = useState(props.initial);
+    const [contador, setContador] = useState(props.initial)
     
     const aumentarContador = () => {
         setContador(contador + 1)
@@ -21,8 +21,7 @@ const ItemCount = (props) => {
         props.onAdd(contador)
     }
 
-return (
-    <>
+    return (
         <div className="container-itemCount">
             <div className="container-button">
                 <button onClick={bajarContador}>-</button>
@@ -31,8 +30,7 @@ return (
             </div>
             <button className="addShop" onClick={confirmarContador}>Agregar al carrito</button>
         </div>
-    </>
-)
+    )
 }
 
 export default ItemCount

@@ -1,32 +1,27 @@
-import { useState, useEffect} from "react";
-import ItemDetail from "./ItemDetail";
-import { useParams } from "react-router-dom";
-import { Productos } from "./Productos";
+import { useState, useEffect} from "react"
+import ItemDetail from "./ItemDetail"
+import { useParams } from "react-router-dom"
+import { getDoc, doc } from "firebase/firestore"
+import { collectionProd } from "../firebase/firebaseConfig"
 
-function ItemDetailContainer({}) {
-    const getProductsById = (id) => {
-            return new Promise (resolve => {
-            setTimeout(() => {
-                resolve(Productos.find(prod => prod.id === id))
-            }, 2000)
-        })
-    }
-
-    const [Product, setProduct] = useState();	
-    const { id } = useParams()
-
-    useEffect(() => {
-        getProductsById(parseInt(id))
-        .then(response => {
-            setProduct(response)
-        })
-    }, [])
+    const ItemDetailContainer = () => {
+        const [loading, setLoading] = useState(true)
+        const [Product, setProduct] = useState({})
+        const { id } = useParams()
     
-    if(Product) {  
-        return (
-            <ItemDetail {...Product} />
-        )
-   }else {
+        useEffect(() => {
+            setLoading(true)
+            const ref = doc(collectionProd, id)
+            getDoc(ref).then((response) => {
+                setLoading (false)
+                setProduct({
+                    id: response.id,
+                    ...response.data(),
+                })
+            })
+        }, [id])
+    
+    if(loading) {  
         return (
             <div className="container">
                 <div className="containerLoad">
@@ -37,6 +32,10 @@ function ItemDetailContainer({}) {
                     </div>
                 </div>
             </div>
+        )
+   }else {
+        return (
+            <ItemDetail {...Product} />
         )
     }
 }

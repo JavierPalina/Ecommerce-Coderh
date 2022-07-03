@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { cartContext } from "../context/cartContext";
+import { useContext } from "react"
+import { cartContext } from "../context/cartContext"
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
@@ -10,7 +10,7 @@ const Cart = () => {
             {cart.length ? (
                 <>
                 <h1>Detalle de su orden</h1>
-                        {cart.map(item =>
+                    {cart.map(item =>
                         <div className="margin" key={item.id}>
                             <div className="containerItemCart">
                                 <img src={item.pictureUrl} alt={item.title} className="image"/>
@@ -27,7 +27,7 @@ const Cart = () => {
                                 </div>
                              </div>
                         </div>
-                        )}
+                    )}
                         <div className="containerButtons">
                             <button className="deleteCart" onClick={() => clear(cart)}>Vaciar carrito</button>
                             <Link to='/'>
@@ -39,14 +39,13 @@ const Cart = () => {
                             <strong>Total: <small></small>{totalPrice}</strong><br/>
                         </div>
                 </>
-
             ) : 
             <div className="containerCartVacio">
-            <h2 className='carroVacio'>Su carrito esta vacio</h2>
-            <img src="carritovacio.jpg" className="imgCart"/>
-            <Link to='/'>
-                <button className="addShop-3">Buscar productos</button>
-            </Link>
+                <h2 className='carroVacio'>Su carrito esta vacio</h2>
+                <img src="carritovacio.jpg" className="imgCart"/>
+                <Link to='/'>
+                    <button className="addShop-3">Buscar productos</button>
+                </Link>
             </div>}
         </div>
     )

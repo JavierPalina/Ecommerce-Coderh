@@ -25,7 +25,7 @@ const CartProvider = (props) => {
       setTotalPrice(
         (totalPrice + itemAdded.price * quantity))
     } else {
-      copyCart.push({ ...itemAdded });
+      copyCart.push({ ...itemAdded })
       setCart(copyCart)
       setTotalQuantity(totalQuantity + quantity)
       setTotalPrice(
@@ -33,14 +33,25 @@ const CartProvider = (props) => {
     }
   }
 
-  const removeItem = (id) => setCart(cart.filter(item => item.id !== id))
+  const removeItem = (itemId) => {
+    const copiaCart = [...cart]
+    const decreasePriceAndQuantity = copiaCart.find(
+      (item) => item.id === itemId
+    )
+    setTotalPrice(
+      parseFloat(totalPrice - decreasePriceAndQuantity.price * decreasePriceAndQuantity.quantity)
+    )
+    setTotalQuantity(totalQuantity - decreasePriceAndQuantity.quantity)
+    const newCopiaCart = copiaCart.filter((item) => item.id !== itemId)
+    setCart(newCopiaCart)
+  }
   
   const isInCart = (idSearch) => {
-    return cart.find(({ id }) => id === idSearch) ? true : false;
+    return cart.find(({ id }) => id === idSearch) ? true : false
   }
 
   const clear = () => {
-    setCart([]);
+    setCart([])
     setTotalQuantity(0)
     setTotalPrice(0)
   }
