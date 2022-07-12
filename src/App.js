@@ -7,19 +7,19 @@ import CartProvider from "./context/cartContext"
 
 const App = () => {
   return (
-     <BrowserRouter>
-     <CartProvider>
-        <Navbar/>
-        <Routes>
+      <BrowserRouter>
+        <CartProvider>
+          <Navbar/>
+            <Routes>
               <Route path="/" element={<ItemListContainer greeting="Bienvenidos a ViperG, Ecommerce de 
-             práctica para CoderHouse"/>} />
+              práctica para CoderHouse"/>} />
               <Route path='/item/:id' element={<ItemDetailContainer/>} />
-             <Route path='/category/:category' element={<ItemListContainer/>}/>
+              <Route path='/category/:category' element={<ItemListContainer/>}/>
               <Route path="/cart" element={<Cart />} />
-       </Routes>
-       </CartProvider>
+            </Routes>
+        </CartProvider>
       </BrowserRouter>
   )
 }
 
-export default App;
+export default App

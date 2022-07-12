@@ -4,22 +4,22 @@ import { useParams } from "react-router-dom"
 import { getDoc, doc } from "firebase/firestore"
 import { collectionProd } from "../firebase/firebaseConfig"
 
-    const ItemDetailContainer = () => {
-        const [loading, setLoading] = useState(true)
-        const [Product, setProduct] = useState({})
-        const { id } = useParams()
+const ItemDetailContainer = () => {
+    const [loading, setLoading] = useState(true)
+    const [Product, setProduct] = useState({})
+    const { id } = useParams()
     
-        useEffect(() => {
-            setLoading(true)
-            const ref = doc(collectionProd, id)
-            getDoc(ref).then((response) => {
-                setLoading (false)
-                setProduct({
-                    id: response.id,
-                    ...response.data(),
-                })
+    useEffect(() => {
+        setLoading(true)
+        const ref = doc(collectionProd, id)
+        getDoc(ref).then((response) => {
+            setLoading (false)
+            setProduct({
+                id: response.id,
+                ...response.data(),
             })
-        }, [id])
+        })
+    }, [id])
     
     if(loading) {  
         return (
@@ -33,9 +33,9 @@ import { collectionProd } from "../firebase/firebaseConfig"
                 </div>
             </div>
         )
-   }else {
+    } else {
         return (
-            <ItemDetail {...Product} />
+            <ItemDetail {...Product}/>
         )
     }
 }

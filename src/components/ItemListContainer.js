@@ -12,7 +12,7 @@ const ItemListContainer = (props) => {
     useEffect(() => {
         setLoading(true)
         const ref = category
-            ? query(collectionProd, where('category', '==', category)): collectionProd
+        ? query(collectionProd, where('category', '==', category)): collectionProd
 
         getDocs(ref).then((response) => {
             setLoading (false)
@@ -26,27 +26,27 @@ const ItemListContainer = (props) => {
         })
     }, [category])
 
-     if(loading) {
-             return (
-                <div className="container">
-                    <div className="containerLoad">
-                        <h3>Cargando productos...</h3>
-                        <div className="loader">
-                            <div className="inner one"></div>
-                            <div className="inner two"></div>
-                            <div className="inner three"></div>
-                        </div>
+    if(loading) {
+        return (
+            <div className="container">
+                <div className="containerLoad">
+                    <h3>Cargando productos...</h3>
+                    <div className="loader">
+                        <div className="inner one"></div>
+                        <div className="inner two"></div>
+                        <div className="inner three"></div>
                     </div>
                 </div>
-             )
-     } else {
-        return (
-        <div className="ListContainer">
-            <h1>{props.greeting}</h1>
-            <div className="Products">
-                <ItemList items={Items}/>
             </div>
-        </div>
+            )
+    } else {
+        return (
+            <div className="ListContainer">
+                <h1>{props.greeting}</h1>
+                <div className="Products">
+                    <ItemList items={Items}/>
+                </div>
+            </div>
         )
     }
 }

@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Ecommerce ViperG
+Tienda de ropa unisex para Coderhouse creada con React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Uso de la App
+* Ingresando a la pagina web, el usuario podra ver todos los productos disponibles.
 
-## Available Scripts
+* Clickeando en ver detalle, podra ingresar la cantidad de productos que quiere comprar, o volver a la pagina de inicio para solicitar otro producto.
 
-In the project directory, you can run:
+* Cada producto agregado se ve en el carrito, al que se accede haciendo click en el icono del mismo (arriba a la derecha).
 
-### `npm start`
+* Para realizar la compra, debe ingresar al carrito, clickear en confirmar compra, y completar el formulario con sus datos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Desde allí se recibira la orden de compra en la base de datos de Firebase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Dependencias
+[Firebase](https://firebase.google.com/)	
+Utilizo Firebase para poder guardar en una base de datos (Firestore) los productos que se muestran en el sitio con todas sus características. También genero una colección de ordenes que hacen los usuarios con sus respectivos ID generados automaticamente para retornarle al usuario.
 
-### `npm test`
+[React-Router-Dom](https://reactrouter.com/)
+Esta librería se encarga de generar rutas dinámicas para asi facilitar la navegabilidad por el sitio.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[React-Router-Dom](https://reactrouter.com/)
 
-### `npm run build`
+## Hooks
+ ###### useState
+Usado para generar estados al componente y guardar esos estados para poder modificarlos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###### useEffect
+Usado para llevar a cabo efectos secundarios en componentes funcionales.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+###### useContext
+Con useContext logramos crear un contexto para poder tener dentro todos los datos, estados y funciones que querramos pasar a cualquier componente hijo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### useParams
+Con useParams se detecta el parametro que le indicamos por la URL.
 
-### `npm run eject`
+## Instalación y visualización
+1. Copiamos el link HTTPS desde Code en Github
+1. Descargamos el archivo zip, o en caso de tener Git instalado, haremos un Git clone.
+`git clone https://github.com/JavierPalina/Ecommerce-Coderh.git`
+1. Desde la terminal nos paramos en la carpeta raiz del proyecto e instalamos todos las dependencias que están dentro con "npm i".
+`npm i`
+1. Con "npm start" iniciamos la App en el navegador con el link http://localhost:3000 para su visualización.
+`npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Demo 
+![demo](public/media/test.gif)
