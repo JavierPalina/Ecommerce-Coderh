@@ -4,10 +4,13 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { cartContext } from "../context/cartContext"
 
 export const CheckOut = ({setModal, Modal, setOrderId}) => {
+  const [Input, setInput] = useState({valido: null})
+
   const [userData, setUserData] = useState({
     name: '',
     phone: '',
     email: '',
+    email2: '',
   })
 
   const Context = useContext(cartContext)
@@ -51,7 +54,22 @@ export const CheckOut = ({setModal, Modal, setOrderId}) => {
       .catch((error) => {
         console.log(error)
       })
-  } 
+  }
+  
+  const validationInputs = () => {
+    if (userData.email.length > 0) {
+      if(userData.email !== userData.email2) {
+        setInput((prevState) => {
+					return {...prevState, valido: 'false'}
+				})
+      }
+      else {
+        setInput((prevState) => {
+					return {...prevState, valido: 'true'}
+				})
+      }
+    }
+  }
       return ( 
       <div>
         {Modal&&
@@ -62,6 +80,7 @@ export const CheckOut = ({setModal, Modal, setOrderId}) => {
                 <div className='inputGroup'>
                   <label>Nombre</label>
                   <input 
+                  className="console"
                   onChange={handleChange} 
                   value={userData.name} 
                   required
@@ -92,9 +111,23 @@ export const CheckOut = ({setModal, Modal, setOrderId}) => {
                   placeholder='Ingrese su correo electronico'
                   />
                 </div>
+                <div className='inputGroup'>
+                  <label className='emailLabel'>Email</label>
+                  <input 
+                  onChange={handleChange} 
+                  value={userData.email2}
+                  required
+                  name="email2" 
+                  type='email' 
+                  placeholder='Ingrese su correo electronico'
+                  onKeyUp={validationInputs}
+                  valido={Input.valido}
+                  />
+                  <p className={Input.valido === 'true' ? 'valido' : 'noValido'}>{Input.valido === 'true' ? '' : 'Recuerda: Ambos correos deben ser iguales para enviar el formulario'}</p>
+                </div>
                 <div className="buttonContainer">
                   <button className='deleteCart' onClick={() => setModal(false)}>Volver</button>
-                  <button className="deleteCart2">Enviar</button>
+                  <button className="deleteCart2" disabled={Input.valido === "false"}>Enviar</button>
                 </div>
               </form>
             </div>
